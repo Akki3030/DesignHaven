@@ -92,11 +92,11 @@ const Header = () => {
 
         {/* Mobile Menu Toggle Button */}
         <button 
-          className="lg:hidden z-50 text-2xl text-dark p-2 hover:text-accent transition-colors duration-300"
+          className="md:hidden cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {isOpen ? <FaTimes /> : <FaBars />}
+          {isOpen ? <FaTimes className='text-2xl right-1 text-accent'/> : <FaBars   className='text-2xl  text-accent'/>}
         </button>
       </div>
 

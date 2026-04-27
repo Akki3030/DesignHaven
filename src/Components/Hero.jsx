@@ -1,107 +1,124 @@
-import React from 'react'
-import { FaAward, FaCalendarAlt, FaPlayCircle, FaTrophy } from 'react-icons/fa'
-import { homePageData } from '../assets/homePageData'
+import React from 'react';
+import { FaAward, FaArrowRight, FaPlay, FaStar } from 'react-icons/fa';
+import { homePageData } from '../assets/homePageData';
 
 const Hero = () => {
   const { hero } = homePageData;
 
   return (
-    <section className='relative w-full h-screen min-h-[800px] flex flex-col lg:flex-row overflow-hidden bg-primary'>
-      {/* Left Column - Content */}
-      <div className='relative w-full lg:w-[55%] h-full flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24 pt-28 lg:pt-0 z-10 bg-gradient-to-br from-primary via-secondary to-blush'>
-        
-        {/* Abstract Background Orbs */}
-        <div className='absolute inset-0 overflow-hidden -z-10 pointer-events-none'>
-          <div className='absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-accent-light/40 blur-[80px] float-animation'></div>
-          <div className='absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-accent/20 blur-[80px] float-animation' style={{animationDelay: '1s'}}></div>
-        </div>
+    <div className="relative min-h-screen flex items-center pt-24 pb-20 py-24 overflow-hidden bg-white">
+      
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
 
-        <div className='max-w-2xl mx-auto lg:mx-0'>
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
+
+        {/* Left Column: Content */}
+        <div className="max-w-2xl">
+          
           {/* Badge */}
-          <div className='fade-in stagger-1 inline-block px-5 py-2 glass rounded-full mb-8 shadow-sm border border-white/60'>
-            <div className='flex items-center gap-2 text-sm font-semibold text-gray-800 tracking-wide uppercase'>
-              <FaAward className='text-accent text-lg' />
-              <span>{hero.badge}</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full mb-8 shadow-sm">
+            <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center">
+              <FaAward className="text-white text-xs" />
             </div>
+            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+              {hero.badge}
+            </span>
           </div>
 
-          {/* Heading */}
-          <h1 className='fade-in stagger-2 text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[1.1] font-heading font-bold mb-8 text-dark'>
+          {/* Title */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-dark leading-[1.1] mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             {hero.title.normal}{' '}
-            <span className='relative inline-block'>
-              <span className='gradient-text'>{hero.title.highlight}</span>
-              <svg className='absolute -bottom-2 left-0 w-full opacity-60' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" preserveAspectRatio="none">
-                <path d="M0,10 Q100,20 200,10" fill="none" stroke="var(--color-accent)" strokeWidth="4" strokeLinecap="round"/>
+            <span className="text-accent relative inline-block">
+              {hero.title.highlight}
+              {/* Swoosh Underline */}
+              <svg className="absolute w-full h-3 -bottom-1 left-0 text-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="transparent" strokeLinecap="round"/>
               </svg>
             </span>{' '}
-            <br />
+            <br className="hidden md:block" />
             {hero.title.end}
           </h1>
 
           {/* Description */}
-          <p className='fade-in stagger-3 font-secondary text-gray-600 text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-light'>
+          <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-xl">
             {hero.description}
           </p>
 
-          {/* Buttons */}
-          <div className='fade-in stagger-4 flex flex-wrap gap-5 mb-14'>
-            <button className='px-8 py-4 bg-dark text-white rounded-full flex items-center justify-center gap-3 transition-all duration-300 hover:bg-black hover:shadow-xl hover:-translate-y-1 font-medium'>
-              <FaCalendarAlt />
-              <span>Book Consultation</span>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 mb-16">
+            <button className="w-full sm:w-auto px-8 py-4 bg-dark text-white rounded-full font-medium flex items-center justify-center gap-3 hover:bg-accent hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 group">
+              Start Your Project
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </button>
-
-            <button className='px-8 py-4 glass text-dark border border-dark/10 rounded-full flex items-center gap-3 hover:bg-white/50 transition-all duration-300 hover:shadow-lg font-medium group'>
-              <FaPlayCircle className='text-accent text-xl group-hover:scale-110 transition-transform' />
-              <span>View Projects</span>
+            <button className="w-full sm:w-auto px-8 py-4 border border-gray-200 text-dark rounded-full font-medium flex items-center justify-center gap-3 hover:bg-gray-50 transition-all duration-300 group">
+              <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                <FaPlay className="text-xs ml-0.5" />
+              </div>
+              Watch Showreel
             </button>
           </div>
 
-          {/* Stats Section with Divider */}
-          <div className='fade-in stagger-5'>
-            <div className='section-divider mb-8'></div>
-            <div className='grid grid-cols-3 gap-6 md:gap-10'>
-              {hero.stats.map((stat, index) => (
-                <div key={index} className='group'>
-                  <h3 className='text-3xl md:text-4xl font-heading font-bold text-dark mb-1 group-hover:text-accent transition-colors'>
-                    {stat.value}
-                  </h3>
-                  <p className='text-sm md:text-base font-secondary text-gray-500 font-medium tracking-wide'>
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100">
+            {hero.stats.map((stat, index) => (
+              <div key={index} className="flex flex-col">
+                <span className="text-3xl md:text-4xl font-bold text-dark mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  {stat.value}
+                </span>
+                <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
           </div>
-        </div>
-      </div>
 
-      {/* Right Column - Full Page Image */}
-      <div className='relative w-full lg:w-[45%] h-[50vh] lg:h-full fade-in-right stagger-3'>
-        <div className='absolute inset-0 bg-dark/10 z-10 hover:bg-transparent transition-colors duration-700 pointer-events-none'></div>
-        <img
-          className='w-full h-full object-cover object-center'
-          src={hero.image.src}
-          alt={hero.image.alt || 'Hero Image'}
-        />
-        
-        {/* Floating Card overlaying the split */}
-        <div className='absolute bottom-10 right-10 lg:right-auto lg:bottom-20 lg:-left-24 glass p-6 rounded-2xl shadow-2xl w-72 z-20 float-animation border border-white/40 backdrop-blur-md hidden sm:block'>
-          <div className='flex items-center gap-4 mb-3'>
-            <div className='w-14 h-14 bg-gradient-to-br from-accent to-accent-deep rounded-full flex items-center justify-center shadow-lg transform -rotate-12'>
-              <FaTrophy className='text-white text-2xl' />
-            </div>
-            <h4 className='font-bold text-dark text-lg leading-tight'>
-              Design<br/>Excellence
-            </h4>
-          </div>
-          <p className='text-sm font-secondary text-gray-600 font-medium'>
-            2026 International Design Award Winner
-          </p>
         </div>
 
-      </div>
-    </section>
-  )
-}
+        {/* Right Column: Visuals */}
+        <div className="relative w-full h-full min-h-[500px] lg:min-h-[600px] flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
+          
+          {/* Main Image Container */}
+          <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <img 
+              src={hero.image.src} 
+              alt={hero.image.alt} 
+              className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+            />
+            {/* Image Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent"></div>
+          </div>
 
-export default Hero
+          {/* Floating Glassmorphism Card 1: Review */}
+          <div className="absolute top-10 -left-6 md:-left-12 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white flex items-center gap-4 float-animation">
+            <div className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center text-xl">
+              <FaStar />
+            </div>
+            <div>
+              <div className="flex text-accent text-sm mb-1">
+                <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
+              </div>
+              <p className="font-bold text-dark text-sm">4.9/5 Average Rating</p>
+            </div>
+          </div>
+
+          {/* Floating Glassmorphism Card 2: Award */}
+          <div className="absolute bottom-20 -right-6 md:-right-12 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white max-w-[220px] float-animation stagger-2">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-dark text-accent flex items-center justify-center text-lg">
+                <FaAward />
+              </div>
+              <p className="font-bold text-dark leading-tight">Design<br/>Excellence</p>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">Award-winning interior and architectural design</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
